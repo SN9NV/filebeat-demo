@@ -1,0 +1,18 @@
+version: '3.2'
+
+services:
+  filebeats:
+    build:
+      context: .
+    volumes:
+      - type: bind
+        source: /var/lib/docker/containers
+        target: /usr/share/dockerlogs/data
+        read_only: true
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: bind
+        source: ./filebeat.yml
+        target: /usr/share/filebeat/filebeat.yml
+        read_only: true
