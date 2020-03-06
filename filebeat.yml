@@ -3,6 +3,7 @@ filebeat.inputs:
     containers:
       path: "/usr/share/dockerlogs/data"
       ids:
+        - "c7f6940fd04a*" #docaid_gxweb
         # - "*"
       cri.parse_flags: true
       combine_partial: true
@@ -18,10 +19,11 @@ filebeat.config.modules:
 
 # setup filebeat to send output to logstash
 output.logstash:
-  hosts: ["127.0.0.1:5044"]
+  hosts:
+    - "10.30.40.177:5044"
 
 # Write Filebeat own logs only to file to avoid catching them with itself in docker log files
-logging.level: error
+logging.level: info
 logging.to_files: false
 logging.to_syslog: false
 loggins.metrice.enabled: false
