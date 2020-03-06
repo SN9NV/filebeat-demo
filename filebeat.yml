@@ -2,9 +2,8 @@ filebeat.inputs:
   - type: docker
     containers:
       path: "/usr/share/dockerlogs/data"
-      stream: "stdout"
       ids:
-        - "*"
+        # - "*"
       cri.parse_flags: true
       combine_partial: true
       exclude_files: ['\.gz$']
