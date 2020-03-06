@@ -8,7 +8,7 @@ filebeat.inputs:
       cri.parse_flags: true
       combine_partial: true
       exclude_files:
-        - "\.gz$"
+        - '\.gz$'
 
 processors:
   - add_docker_metadata:
